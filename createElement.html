@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Auto Create</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <link href="createElement.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <script>
+            // This script creates html element for the page
+            'use strict';
+            window.onload = () => {
+                // The entire page
+                let entirePage = document.body;
+
+                    setTimeout(mainHeading, 1000)
+                    // For page heading
+                    function mainHeading() {
+                        let heading = document.createElement("h1");
+                        heading.className = "heading";
+                        let headingText = document.createTextNode("Page Created With JavaScript");
+                        heading.append(headingText);
+                        document.body.append(heading);
+                    }
+
+                    // For details section
+                    setTimeout(pageDetails, 1500)
+                    function pageDetails() {
+                        let detailContainer = document.createElement("section");
+                        detailContainer.className = "detailContainer";
+                        let details = document.createElement("p");
+                        details.className = "details";
+                        details.innerHTML = "This page is created with JS, using DOM manipulation. <br> Its behaviour is typically like that of an <a href='#'>AI response to queries and prompts</a>.";
+                        detailContainer.append(details);
+                        document.body.append(detailContainer);
+                    }
+
+                    // About page Development tool
+                    setTimeout(devtoolHeading, 2500)
+                    function devtoolHeading() {
+                        let devHeading = document.createElement("h2");
+                        devHeading.className = "text-heading";
+                        let devHeadingText = document.createTextNode("Dev Tool");
+                        devHeading.appendChild(devHeadingText);
+                        document.body.append(devHeading);
+                    }
+                    // Page Dev tool details
+                    setTimeout(devtoolDetails, 2600)
+                    function devtoolDetails() {
+                        let devDetailContainer = document.createElement("section");
+                        let devtoolDetail = document.createElement("p");
+                        devtoolDetail.className = "detail";
+                        let text = "This refers to the tool set applied in the creation of the page.";
+                        
+                        let cursor = document.createElement("span");
+                        cursor.id = "blinkingcursor";
+                        cursor.innerHTML = "|<br><br>";
+                        
+                        const letters = text.split('');
+                        let index = 0;
+
+                        function writeLetterByLetter() {
+                        if (index < letters.length) {
+                            devtoolDetail.textContent += letters[index];
+                            index++;
+                            setTimeout(writeLetterByLetter,40); // Adjust the delay (in milliseconds) as desired
+                            }
+                            devDetailContainer.append(devtoolDetail);
+                            devDetailContainer.append(cursor);
+                        }
+                        writeLetterByLetter();
+                        
+                        document.body.append(devDetailContainer);
+                    }
+
+                    setTimeout(theTools, 6100);
+                    function theTools() {
+                        let introText = document.createTextNode("The tools used include:");
+                        let container = document.createElement("section");
+                        container.prepend(introText);
+
+                        let code = document.createElement("code");
+                        code.innerHTML = "</br> <ul><li>JS functions</li><ul>- <a href=''>Global functions</a> </ul> <ul>- <a href=''>User-defined functions</a></ul> <br> <li>JS Methods</li><ul><a href=''>.createElement()</a></ul><ul><a href=''>.split()</a></ul> <ul><a href=''>.prependChild()</a></ul> <ul><a href=''>.appendChild()</ul>";
+                        container.append(code);
+                        document.body.appendChild(container);
+                    }
+
+                    setTimeout(codeSample, 6500);
+                    function codeSample() {
+                        let sampleCodetag = document.createElement("h2");
+                        sampleCodetag.className ="text-heading";
+                        let sampleCodeText = document.createTextNode("Sample Code");
+                        let samplecontainer = document.createElement("caption");
+                        samplecontainer.className = "codesample-container";
+                        let containerTitle = document.createElement("section");
+                        containerTitle.className = "title";
+                        containerTitle.innerHTML = "<span id='red'>●</span>&nbsp<span id='yellow'>●</span>&nbsp<span id='green'>●</span> &nbsp <span id='code'>html</span>";
+                        samplecontainer.prepend(containerTitle);
+
+                        sampleCodetag.append(sampleCodeText);
+
+                       document.body.appendChild(sampleCodetag);
+                        document.body.appendChild(samplecontainer);
+                    }
+                }
+        </script>
+    </body>
+        
+</html>
